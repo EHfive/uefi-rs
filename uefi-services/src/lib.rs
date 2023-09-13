@@ -97,14 +97,15 @@ pub fn init(st: &mut SystemTable<Boot>) -> Result {
         uefi::allocator::init(boot_services);
 
         // Schedule these tools to be disabled on exit from UEFI boot services
-        boot_services
-            .create_event(
-                EventType::SIGNAL_EXIT_BOOT_SERVICES,
-                Tpl::NOTIFY,
-                Some(exit_boot_services),
-                None,
-            )
-            .map(|_| ())
+        // boot_services
+        //     .create_event(
+        //         EventType::SIGNAL_EXIT_BOOT_SERVICES,
+        //         Tpl::NOTIFY,
+        //         Some(exit_boot_services),
+        //         None,
+        //     )
+        //     .map(|_| ());
+        Ok(())
     }
 }
 
